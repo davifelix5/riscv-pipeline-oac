@@ -1,0 +1,78 @@
+# Reading pref.tcl
+# vsim -gui . 
+# Start time: 14:26:37 on Nov 19,2024
+# ** Error (suppressible): (vsim-19) Failed to access library '' at "".
+# Invalid argument. (errno = EINVAL)
+# Error loading design
+# End time: 14:26:38 on Nov 19,2024, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Loading project sim_riscv
+# Compile of adder.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of aludec.sv was successful.
+# Compile of controller.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of dmem.sv was successful.
+# Compile of extend.sv was successful.
+# Compile of flopr.sv was successful.
+# Compile of imem.sv was successful.
+# Compile of maindec.sv was successful.
+# Compile of mux2.sv was successful.
+# Compile of mux3.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of riscvsingle.sv was successful.
+# Compile of testbench.sv was successful.
+# 15 compiles, 0 failed with no errors.
+vsim -gui work.testbench
+# vsim -gui work.testbench 
+# Start time: 14:27:20 on Nov 19,2024
+# Loading sv_std.std
+# Loading work.testbench
+# Loading work.top
+# Loading work.riscvsingle
+# Loading work.controller
+# Loading work.maindec
+# Loading work.aludec
+# Loading work.datapath
+# Loading work.flopr
+# Loading work.adder
+# Loading work.mux2
+# Loading work.regfile
+# Loading work.extend
+# Loading work.alu
+# Loading work.mux3
+# Loading work.imem
+# Loading work.dmem
+run 210
+# ** Warning: (vsim-7) Failed to open readmem file "riscvtest.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/imem.sv(7)
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut/imem
+run 210
+restart 
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run 210
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: (vsim-7) Failed to open readmem file "riscvtest.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/imem.sv(7)
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut/imem
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run 210
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Simulation succeeded
+# ** Note: $stop    : C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/testbench.sv(30)
+#    Time: 195 ps  Iteration: 1  Instance: /testbench
+# Break in Module testbench at C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/testbench.sv line 30
+restart
+run 210
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Simulation succeeded
+# ** Note: $stop    : C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/testbench.sv(30)
+#    Time: 195 ps  Iteration: 1  Instance: /testbench
+# Break in Module testbench at C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/testbench.sv line 30
