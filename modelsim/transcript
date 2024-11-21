@@ -1,78 +1,311 @@
-# Reading pref.tcl
-# vsim -gui . 
-# Start time: 14:26:37 on Nov 19,2024
-# ** Error (suppressible): (vsim-19) Failed to access library '' at "".
-# Invalid argument. (errno = EINVAL)
-# Error loading design
-# End time: 14:26:38 on Nov 19,2024, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 0
-# Loading project sim_riscv
-# Compile of adder.sv was successful.
-# Compile of alu.sv was successful.
-# Compile of aludec.sv was successful.
-# Compile of controller.sv was successful.
-# Compile of datapath.sv was successful.
-# Compile of dmem.sv was successful.
-# Compile of extend.sv was successful.
-# Compile of flopr.sv was successful.
-# Compile of imem.sv was successful.
-# Compile of maindec.sv was successful.
-# Compile of mux2.sv was successful.
-# Compile of mux3.sv was successful.
-# Compile of regfile.sv was successful.
-# Compile of riscvsingle.sv was successful.
-# Compile of testbench.sv was successful.
-# 15 compiles, 0 failed with no errors.
-vsim -gui work.testbench
-# vsim -gui work.testbench 
-# Start time: 14:27:20 on Nov 19,2024
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 linux_x86_64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim work.testbench -voptargs="+acc" -do "do wave.do" 
+# Start time: 19:04:05 on Nov 20,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
 # Loading sv_std.std
-# Loading work.testbench
-# Loading work.top
-# Loading work.riscvsingle
-# Loading work.controller
-# Loading work.maindec
-# Loading work.aludec
-# Loading work.datapath
-# Loading work.flopr
-# Loading work.adder
-# Loading work.mux2
-# Loading work.regfile
-# Loading work.extend
-# Loading work.alu
-# Loading work.mux3
-# Loading work.imem
-# Loading work.dmem
-run 210
-# ** Warning: (vsim-7) Failed to open readmem file "riscvtest.txt" in read mode.
-# No such file or directory. (errno = ENOENT)    : C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/imem.sv(7)
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut/imem
-run 210
-restart 
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run 210
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# ** Warning: (vsim-7) Failed to open readmem file "riscvtest.txt" in read mode.
-# No such file or directory. (errno = ENOENT)    : C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/imem.sv(7)
-#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut/imem
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run 210
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscvsingle(fast)
+# Loading work.controller(fast)
+# Loading work.maindec(fast)
+# Loading work.aludec(fast)
+# Loading work.datapath(fast)
+# Loading work.flopr(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.regfile(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.mux3(fast)
+# Loading work.imem(fast)
+# Loading work.dmem(fast)
+# do wave.do
+run 1000
 # Simulation succeeded
-# ** Note: $stop    : C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/testbench.sv(30)
-#    Time: 195 ps  Iteration: 1  Instance: /testbench
-# Break in Module testbench at C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/testbench.sv line 30
-restart
-run 210
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
+# ** Note: $stop    : ../testbench.sv(32)
+#    Time: 195 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at ../testbench.sv line 32
+add wave -position insertpoint  \
+sim:/testbench/WriteData
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscvsingle(fast)
+# Loading work.controller(fast)
+# Loading work.maindec(fast)
+# Loading work.aludec(fast)
+# Loading work.datapath(fast)
+# Loading work.flopr(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.regfile(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.mux3(fast)
+# Loading work.imem(fast)
+# Loading work.dmem(fast)
+run 1000
 # Simulation succeeded
-# ** Note: $stop    : C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/testbench.sv(30)
-#    Time: 195 ps  Iteration: 1  Instance: /testbench
-# Break in Module testbench at C:/Users/Andrew/OneDrive/Documents/GitHub/riscv-pipeline-oac/testbench.sv line 30
+# ** Note: $stop    : ../testbench.sv(32)
+#    Time: 195 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at ../testbench.sv line 32
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/ALUControl
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/ALUResult
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/ReadData
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/Zero
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/Jump
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/c/Branch
+restart 0f
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscvsingle(fast)
+# Loading work.controller(fast)
+# Loading work.maindec(fast)
+# Loading work.aludec(fast)
+# Loading work.datapath(fast)
+# Loading work.flopr(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.regfile(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.mux3(fast)
+# Loading work.imem(fast)
+# Loading work.dmem(fast)
+run 1000
+# Simulation succeeded
+# ** Note: $stop    : ../testbench.sv(32)
+#    Time: 195 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at ../testbench.sv line 32
+add wave -position insertpoint  \
+sim:/testbench/dut/clk
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscvsingle(fast)
+# Loading work.controller(fast)
+# Loading work.maindec(fast)
+# Loading work.aludec(fast)
+# Loading work.datapath(fast)
+# Loading work.flopr(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.regfile(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.mux3(fast)
+# Loading work.imem(fast)
+# Loading work.dmem(fast)
+run 1000
+# Simulation succeeded
+# ** Note: $stop    : ../testbench.sv(32)
+#    Time: 195 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at ../testbench.sv line 32
+add wave -position insertpoint  \
+sim:/testbench/dut/reset
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscvsingle(fast)
+# Loading work.controller(fast)
+# Loading work.maindec(fast)
+# Loading work.aludec(fast)
+# Loading work.datapath(fast)
+# Loading work.flopr(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.regfile(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.mux3(fast)
+# Loading work.imem(fast)
+# Loading work.dmem(fast)
+run 1000
+# Simulation succeeded
+# ** Note: $stop    : ../testbench.sv(32)
+#    Time: 195 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at ../testbench.sv line 32
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/davifelix/Documentos/3quadri/oac/atv4/riscv-pipeline-oac/modelsim/wave.do
+vlog ../*.sv
+# Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 19:17:25 on Nov 20,2024
+# vlog -reportprogress 300 ../adder.sv ../alu.sv ../aludec.sv ../controller.sv ../datapath.sv ../dmem.sv ../extend.sv ../flopr.sv ../imem.sv ../maindec.sv ../mux2.sv ../mux3.sv ../regfile.sv ../riscvsingle.sv ../testbench.sv ../top.sv 
+# -- Compiling module adder
+# -- Compiling module alu
+# -- Compiling module aludec
+# -- Compiling module controller
+# -- Compiling module datapath
+# -- Compiling module dmem
+# -- Compiling module extend
+# -- Compiling module flopr
+# -- Compiling module imem
+# -- Compiling module maindec
+# -- Compiling module mux2
+# -- Compiling module mux3
+# -- Compiling module regfile
+# -- Compiling module riscvsingle
+# -- Compiling module testbench
+# -- Compiling module top
+# 
+# Top level modules:
+# 	testbench
+# End time: 19:17:25 on Nov 20,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscvsingle(fast)
+# Loading work.controller(fast)
+# Loading work.maindec(fast)
+# Loading work.aludec(fast)
+# Loading work.datapath(fast)
+# Loading work.flopr(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.regfile(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.mux3(fast)
+# Loading work.imem(fast)
+# Loading work.dmem(fast)
+run 1000
+# Simulation succeeded
+# ** Note: $stop    : ../testbench.sv(32)
+#    Time: 175 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at ../testbench.sv line 32
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/dp/rf/a3 \
+sim:/testbench/dut/rvsingle/dp/rf/a2 \
+sim:/testbench/dut/rvsingle/dp/rf/a1
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/dp/rf/wd3
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscvsingle(fast)
+# Loading work.controller(fast)
+# Loading work.maindec(fast)
+# Loading work.aludec(fast)
+# Loading work.datapath(fast)
+# Loading work.flopr(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.regfile(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.mux3(fast)
+# Loading work.imem(fast)
+# Loading work.dmem(fast)
+run 1000
+# Simulation succeeded
+# ** Note: $stop    : ../testbench.sv(32)
+#    Time: 175 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at ../testbench.sv line 32
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/c/Jump
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscvsingle(fast)
+# Loading work.controller(fast)
+# Loading work.maindec(fast)
+# Loading work.aludec(fast)
+# Loading work.datapath(fast)
+# Loading work.flopr(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.regfile(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.mux3(fast)
+# Loading work.imem(fast)
+# Loading work.dmem(fast)
+run 1000
+# Simulation succeeded
+# ** Note: $stop    : ../testbench.sv(32)
+#    Time: 175 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at ../testbench.sv line 32
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/c/ALUOp
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/c/funct3
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscvsingle(fast)
+# Loading work.controller(fast)
+# Loading work.maindec(fast)
+# Loading work.aludec(fast)
+# Loading work.datapath(fast)
+# Loading work.flopr(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.regfile(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.mux3(fast)
+# Loading work.imem(fast)
+# Loading work.dmem(fast)
+run 1000
+# Simulation succeeded
+# ** Note: $stop    : ../testbench.sv(32)
+#    Time: 175 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at ../testbench.sv line 32
+add wave -position insertpoint  \
+sim:/testbench/dut/rvsingle/dp/alu/alucontrol
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscvsingle(fast)
+# Loading work.controller(fast)
+# Loading work.maindec(fast)
+# Loading work.aludec(fast)
+# Loading work.datapath(fast)
+# Loading work.flopr(fast)
+# Loading work.adder(fast)
+# Loading work.mux2(fast)
+# Loading work.regfile(fast)
+# Loading work.extend(fast)
+# Loading work.alu(fast)
+# Loading work.mux3(fast)
+# Loading work.imem(fast)
+# Loading work.dmem(fast)
+run 1000
+# Simulation succeeded
+# ** Note: $stop    : ../testbench.sv(32)
+#    Time: 175 ns  Iteration: 1  Instance: /testbench
+# Break in Module testbench at ../testbench.sv line 32
+run 100
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/davifelix/Documentos/3quadri/oac/atv4/riscv-pipeline-oac/modelsim/wave.do
+# End time: 22:31:58 on Nov 20,2024, Elapsed time: 3:27:53
+# Errors: 0, Warnings: 0

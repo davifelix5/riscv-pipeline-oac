@@ -78,19 +78,6 @@
 //   sw           0100011   010       immediate
 //   jal          1101111   immediate immediate
 
-module top(input  logic        clk, reset, 
-           output logic [31:0] WriteData, DataAdr, 
-           output logic        MemWrite);
-
-  logic [31:0] PC, Instr, ReadData;
-  
-  // instantiate processor and memories
-  riscvsingle rvsingle(clk, reset, PC, Instr, MemWrite, DataAdr, 
-                       WriteData, ReadData);
-  imem imem(PC, Instr);
-  dmem dmem(clk, MemWrite, DataAdr, WriteData, ReadData);
-endmodule
-
 module riscvsingle(input  logic        clk, reset,
                    output logic [31:0] PC,
                    input  logic [31:0] Instr,
