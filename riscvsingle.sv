@@ -85,17 +85,18 @@ module riscvsingle(input  logic        clk, reset,
                    output logic [31:0] ALUResult, WriteData,
                    input  logic [31:0] ReadData);
 
-  logic       ALUSrc, RegWrite, Jump, Zero;
+  logic       ALUSrc, RegWrite, Jump, Branch, Zero;
   logic [1:0] ResultSrc, ImmSrc;
   logic [2:0] ALUControl;
 
   controller c(Instr[6:0], Instr[14:12], Instr[30], Zero,
-               ResultSrc, MemWrite, PCSrc,
-               ALUSrc, RegWrite, Jump,
+               ResultSrc, MemWrite, ALUSrc, 
+               RegWrite, Jump, Branch, 
                ImmSrc, ALUControl);
-  datapath dp(clk, reset, ResultSrc, PCSrc,
-              ALUSrc, RegWrite,
+
+  datapath dp(clk, reset, ResultSrc,
+              ALUSrc, RegWrite, MemWrite,
               ImmSrc, ALUControl,
-              Zero, PC, Instr,
+              Zero, Jump, Branch, PC, Instr,
               ALUResult, WriteData, ReadData);
 endmodule
