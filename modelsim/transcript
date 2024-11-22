@@ -12,8 +12,8 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# vsim work.testbench -voptargs="+acc" -do "do wave.do; run 1000" 
-# Start time: 09:45:59 on Nov 21,2024
+# vsim work.testbench -voptargs="+acc" -do "do pipeline.do; run 105" 
+# Start time: 23:38:35 on Nov 21,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading sv_std.std
 # Loading work.testbench(fast)
@@ -23,20 +23,29 @@
 # Loading work.maindec(fast)
 # Loading work.aludec(fast)
 # Loading work.datapath(fast)
-# Loading work.flopr(fast)
+# Loading work.flopre(fast)
 # Loading work.adder(fast)
 # Loading work.mux2(fast)
+# Loading work.fetch_decode_register(fast)
+# Loading work.floprce(fast)
 # Loading work.regfile(fast)
 # Loading work.extend(fast)
-# Loading work.alu(fast)
+# Loading work.decode_execute_register(fast)
+# Loading work.floprc(fast)
+# Loading work.floprc(fast__1)
+# Loading work.floprc(fast__2)
 # Loading work.mux3(fast)
+# Loading work.alu(fast)
+# Loading work.execute_memory_register(fast)
+# Loading work.flopr(fast)
+# Loading work.flopr(fast__1)
+# Loading work.flopr(fast__2)
+# Loading work.memory_writeback_register(fast)
+# Loading work.flopr(fast__3)
+# Loading work.forwarding_unit(fast)
 # Loading work.imem(fast)
 # Loading work.dmem(fast)
-# do wave.do
-#  run 1000
-# Simulation succeeded
-# ** Note: $stop    : ../testbench.sv(32)
-#    Time: 175 ns  Iteration: 1  Instance: /testbench
-# Break in Module testbench at ../testbench.sv line 32
-# End time: 09:46:32 on Nov 21,2024, Elapsed time: 0:00:33
+# do pipeline.do
+#  run 105
+# End time: 23:38:44 on Nov 21,2024, Elapsed time: 0:00:09
 # Errors: 0, Warnings: 0
