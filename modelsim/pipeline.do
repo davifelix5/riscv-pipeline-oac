@@ -7,7 +7,6 @@ add wave -noupdate /testbench/dut/rvsingle/PCF
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/F_ID/PcPlus4F
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/F_ID/PCF
 add wave -noupdate /testbench/dut/rvsingle/dp/F_ID/InstrF
-add wave -noupdate /testbench/dut/rvsingle/InstrD
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/F_ID/PcPlus4D
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/F_ID/PCD
 add wave -noupdate -radix hexadecimal /testbench/dut/rvsingle/dp/F_ID/InstrD
@@ -17,23 +16,23 @@ add wave -noupdate -divider ID/EX
 add wave -noupdate -radix binary /testbench/dut/rvsingle/c/op
 add wave -noupdate /testbench/dut/rvsingle/dp/JumpD
 add wave -noupdate /testbench/dut/rvsingle/dp/ALUSrcD
-add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/Rs2D
-add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/Rs1D
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/RdD
-add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/RD2D
+add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/Rs1D
+add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/Rs2D
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/RD1D
+add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/RD2D
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/PcPlus4D
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/PCD
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/ImmExtD
 add wave -noupdate -radix binary /testbench/dut/rvsingle/dp/ID_EX/controlD
-add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/Rs2E
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/Rs1E
+add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/Rs2E
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/RdE
-add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/RD2E
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/RD1E
+add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/RD2E
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/PcPlus4E
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/PCE
-add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ID_EX/ImmExtE
+add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ID_EX/ImmExtE
 add wave -noupdate -radix binary /testbench/dut/rvsingle/dp/ID_EX/controlE
 add wave -noupdate /testbench/dut/rvsingle/dp/ID_EX/Clear
 add wave -noupdate -divider EX/MEM
@@ -64,14 +63,21 @@ add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ME_WB/RdW
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ME_WB/PcPlus4W
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ME_WB/AluResultW
 add wave -noupdate -radix binary /testbench/dut/rvsingle/dp/ME_WB/controlW
-add wave -noupdate -divider {DepuraÃ§ao do WB}
+add wave -noupdate -divider {DepuraÃÂ§ao do WB}
 add wave -noupdate /testbench/dut/rvsingle/dp/rf/we3
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/rf/wd3
 add wave -noupdate /testbench/dut/rvsingle/dp/rf/a3
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ResultW
 add wave -noupdate /testbench/dut/rvsingle/dp/RegWriteW
+add wave -noupdate /testbench/dut/rvsingle/dp/StallF
+add wave -noupdate /testbench/dut/rvsingle/dp/StallD
+add wave -noupdate /testbench/dut/rvsingle/dp/FlushE
+add wave -noupdate /testbench/dut/rvsingle/dp/FlushD
+add wave -noupdate /testbench/dut/rvsingle/dp/BranchE
+add wave -noupdate /testbench/dut/rvsingle/dp/ZeroE
+add wave -noupdate /testbench/dut/rvsingle/dp/JumpE
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {808 ns} 0} {{Cursor 2} {18 ns} 0}
+WaveRestoreCursors {{Cursor 1} {0 ns} 0} {{Cursor 2} {181 ns} 0}
 quietly wave cursor active 2
 configure wave -namecolwidth 349
 configure wave -valuecolwidth 100
@@ -87,4 +93,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {105 ns}
+WaveRestoreZoom {99 ns} {258 ns}

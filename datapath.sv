@@ -14,14 +14,14 @@ module datapath(input  logic        clk, reset,
                 output logic        MemWriteM,
                 input  logic [31:0] ReadDataM);
 
+    logic FlushD, StallD, StallF, FlushE;
+
   // 1.Fetch
   logic PCSrcE;
   logic [31:0] PCTargetE, PCNextF;
-  logic FlushD, StallD, StallF;
   logic [31:0] PCPlus4F;
   flopre #(32) pcreg(clk, reset, 
-                     //~StallF,
-                     1'b1, 
+                     ~StallF,
                      PCNextF, PCF); 
   adder       pcadd4(PCF, 32'd4, PCPlus4F);
   mux2 #(32)  pcmux(PCPlus4F, PCTargetE, PCSrcE, PCNextF);
@@ -29,12 +29,10 @@ module datapath(input  logic        clk, reset,
   // FE/ID
   logic [31:0] PCD, PcPlus4D;
   fetch_decode_register F_ID(clk, reset,
-                             // FlushD, ~StallD,
-                             1'b0, 1'b1,
+                             FlushD, ~StallD,
                              InstrF, PCF, PCPlus4F,
                              InstrD, PCD, PcPlus4D); 
   // 2.Decode
-  logic FlushE;
   logic RegWriteW;
   logic [4:0] RdW;
   logic [31:0] RD1D, RD2D, ResultW, ImmExtD;
@@ -58,8 +56,7 @@ module datapath(input  logic        clk, reset,
     RegWriteE, ResultSrcE, MemWriteE, JumpE, BranchE, ALUControlE, ALUSrcE 
   } = controlE;
   decode_execute_register ID_EX(clk, reset, 
-                                // FlushE,
-                                1'b0,
+                                FlushE,
                                 {RegWriteD, ResultSrcD, MemWriteD, JumpD, BranchD, ALUControlD, ALUSrcD},
                                 Rs1D, Rs2D, RdD, 
                                 ImmExtD, PcPlus4D, PCD, RD1D, RD2D,
@@ -69,16 +66,16 @@ module datapath(input  logic        clk, reset,
   // 3.Execute
   logic [1:0] ForwardAE, ForwardBE;
   logic ZeroE;
-  logic [31:0] SrcAE, RD2E_f, SrcBE, ALUResultE, WriteDataE, ALUResultW;
-  assign WriteDataE = RD2E;
+  logic [31:0] SrcAE, RD2E_f, SrcBE, ALUResultE, WriteDataE;
 
-  mux3 #(32) forwardA(RD1E, ALUResultW, ALUResultM, ForwardAE, SrcAE);
-  mux3 #(32) forwardB(RD2E, ALUResultW, ALUResultM, ForwardBE, RD2E_f);
+  mux3 #(32) forwardA(RD1E, ResultW, ALUResultM, ForwardAE, SrcAE);
+  mux3 #(32) forwardB(RD2E, ResultW, ALUResultM, ForwardBE, RD2E_f);
 
   mux2 #(32)  srcbmux(RD2E_f, ImmExtE, ALUSrcE, SrcBE);
   alu         alu(SrcAE, SrcBE, ALUControlE, ALUResultE, ZeroE);
   adder       pcaddbranch(PCE, ImmExtE, PCTargetE);
   
+  assign WriteDataE = RD2E_f;
   assign PCSrcE = BranchE & ZeroE | JumpE;
 
   //EX/MEM
@@ -103,7 +100,7 @@ module datapath(input  logic        clk, reset,
 
   //ME/WB
   logic [2:0] controlW;
-  logic [31:0] PcPlus4W, ReadDataW;
+  logic [31:0] PcPlus4W, ReadDataW, ALUResultW;
   logic [1:0] ResultSrcW;
   assign {
     RegWriteW, ResultSrcW
@@ -125,4 +122,7 @@ module datapath(input  logic        clk, reset,
   forwarding_unit fwd(Rs1E, Rs2E, RdM, RdW,
                       RegWriteM, RegWriteW,
                       ForwardAE, ForwardBE);
+
+  hazard_detection_unit hd(ResultSrcE[0], Rs1D,Rs2D, RdE, PCSrcE,
+                           StallF, StallD, FlushD, FlushE);
 endmodule
