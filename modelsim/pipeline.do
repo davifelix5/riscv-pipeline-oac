@@ -2,12 +2,12 @@ onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /testbench/dut/rvsingle/dp/F_ID/clk
 add wave -noupdate -divider FE/ID
-add wave -noupdate /testbench/dut/rvsingle/InstrD
-add wave -noupdate /testbench/dut/rvsingle/PCF
 add wave -noupdate /testbench/dut/rvsingle/dp/F_ID/reset
+add wave -noupdate /testbench/dut/rvsingle/PCF
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/F_ID/PcPlus4F
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/F_ID/PCF
 add wave -noupdate /testbench/dut/rvsingle/dp/F_ID/InstrF
+add wave -noupdate /testbench/dut/rvsingle/InstrD
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/F_ID/PcPlus4D
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/F_ID/PCD
 add wave -noupdate -radix hexadecimal /testbench/dut/rvsingle/dp/F_ID/InstrD
@@ -64,14 +64,14 @@ add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ME_WB/RdW
 add wave -noupdate -radix unsigned /testbench/dut/rvsingle/dp/ME_WB/PcPlus4W
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ME_WB/AluResultW
 add wave -noupdate -radix binary /testbench/dut/rvsingle/dp/ME_WB/controlW
-add wave -noupdate -divider {Depuraçao do WB}
+add wave -noupdate -divider {DepuraÃ§ao do WB}
 add wave -noupdate /testbench/dut/rvsingle/dp/rf/we3
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/rf/wd3
 add wave -noupdate /testbench/dut/rvsingle/dp/rf/a3
 add wave -noupdate -radix decimal /testbench/dut/rvsingle/dp/ResultW
 add wave -noupdate /testbench/dut/rvsingle/dp/RegWriteW
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {808 ns} 0} {{Cursor 2} {105 ns} 0}
+WaveRestoreCursors {{Cursor 1} {808 ns} 0} {{Cursor 2} {18 ns} 0}
 quietly wave cursor active 2
 configure wave -namecolwidth 349
 configure wave -valuecolwidth 100
@@ -87,4 +87,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {6 ns} {111 ns}
+WaveRestoreZoom {0 ns} {105 ns}

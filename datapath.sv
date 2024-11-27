@@ -42,7 +42,7 @@ module datapath(input  logic        clk, reset,
   assign Rs1D = InstrD[19:15];
   assign Rs2D = InstrD[24:20];
   assign RdD = InstrD[11:7];
-  regfile     rf(clk, RegWriteW, Rs1D, Rs2D, 
+  regfile     rf(~clk, RegWriteW, Rs1D, Rs2D, 
                  RdW, ResultW, RD1D, RD2D);
   extend      ext(InstrD[31:7], ImmSrcD, ImmExtD);
 
