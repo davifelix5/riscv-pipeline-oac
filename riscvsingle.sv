@@ -79,23 +79,25 @@
 //   jal          1101111   immediate immediate
 
 module riscvsingle(input  logic        clk, reset,
-                   output logic [31:0] PC,
-                   input  logic [31:0] Instr,
-                   output logic        MemWrite,
-                   output logic [31:0] ALUResult, WriteData,
-                   input  logic [31:0] ReadData);
+                   output logic [31:0] PCF,
+                   input  logic [31:0] InstrF,
+                   output logic        MemWriteM,
+                   output logic [31:0] ALUResultM, WriteDataM,
+                   input  logic [31:0] ReadDataM);
 
-  logic       ALUSrc, RegWrite, Jump, Zero;
-  logic [1:0] ResultSrc, ImmSrc;
+  logic       ALUSrcD, RegWriteD, MemWriteD, JumpD, BranchD;
+  logic [1:0] ResultSrcD, ImmSrc;
   logic [2:0] ALUControl;
+  logic [31:0] InstrD;
 
-  controller c(Instr[6:0], Instr[14:12], Instr[30], Zero,
-               ResultSrc, MemWrite, PCSrc,
-               ALUSrc, RegWrite, Jump,
+  controller c(InstrD[6:0], InstrD[14:12], InstrD[30],
+               ResultSrcD, MemWriteD, ALUSrcD, 
+               RegWriteD, JumpD, BranchD, 
                ImmSrc, ALUControl);
-  datapath dp(clk, reset, ResultSrc, PCSrc,
-              ALUSrc, RegWrite,
+
+  datapath dp(clk, reset, ResultSrcD,
+              ALUSrcD, RegWriteD, MemWriteD,
               ImmSrc, ALUControl,
-              Zero, PC, Instr,
-              ALUResult, WriteData, ReadData);
+              JumpD, BranchD, PCF, InstrF, InstrD,
+              ALUResultM, WriteDataM, MemWriteM, ReadDataM);
 endmodule
